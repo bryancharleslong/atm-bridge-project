@@ -12,14 +12,35 @@ public class AtmClientApp {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Welcome to the bank!");
 		System.out.println("Please enter your four digit PIN");
+		String pinInput = "";
 		do {
-			correctPin = atm.checkPin(input.nextInt());
+			for (;;) {
+				try {
+					pinInput = input.nextLine();
+					Integer.parseInt(pinInput);
+					break;
+				} catch (NumberFormatException e) {
+					System.out.println("enter a four digit number");
+					continue;
+				}
+			}
+			correctPin = atm.checkPin(Integer.parseInt(pinInput));
 		} while (!correctPin);
 		int menuChoice;
+		String menuInput = "";
 		do {
 			System.out.println("Menu:\n1. deposit\n2. withdraw\n3. balance\n4. exit");
-			menuChoice = input.nextInt();
-			input.nextLine();
+			for (;;) {
+				try {
+					menuInput = input.nextLine();
+					Integer.parseInt(menuInput);
+					break;
+				} catch (NumberFormatException e) {
+					System.out.println("please enter a single digit to select");
+					continue;
+				}
+			}
+			menuChoice = Integer.parseInt(menuInput);
 			if (menuChoice == 1) {
 				System.out.println("deposit amount?");
 				BigDecimal depositAmount = new BigDecimal(input.nextLine());

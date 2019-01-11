@@ -41,5 +41,5 @@ public class AtmTest {
 	public void shouldNotAllowWrongPin() {
 		assertEquals(false,undertest.checkPin(1111));
 	}
-	
+		
 }

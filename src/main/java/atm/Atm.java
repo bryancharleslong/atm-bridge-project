@@ -36,10 +36,15 @@ public class Atm {
 		return false;
 
 	}
+	public boolean checkInput4(int pinToCheck) {
+		
+		return true;
+	}
 
 	public Atm(BigDecimal balance, int pin) {
 		this.balance = balance;
 		this.pin = pin;
 	}
+
 
 }
